@@ -16,6 +16,8 @@ export const Login = observer(() => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const updateTimestamp = new Date();
+    authStore.setUpdateTimestamp(updateTimestamp);
     navigate("/userinfo");
   };
 

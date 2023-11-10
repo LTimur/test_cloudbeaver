@@ -16,6 +16,8 @@ export const Registration = observer(() => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const createTimestamp = new Date();
+    authStore.setCreateTimestamp(createTimestamp);
     navigate("/userinfo");
   };
 
