@@ -42,7 +42,7 @@ export const Login = observer(() => {
             onChange={handlePasswordChange}
           />
         </div>
-        <button type="submit">Login</button>
+        <button className={styles.button} type="submit">Login</button>
       </form>
     </div>
   );

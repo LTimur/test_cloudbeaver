@@ -1,0 +1,33 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.logo {
+  width:400px; 
+  margin-bottom: 20px;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  margin: 10px 0;
+  padding: 15px 30px;
+  background-color: #4598d3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 200px; 
+  background-color: #4598d3;
+}
+
+.button:hover {
+  background-color: #2a6590;
+}

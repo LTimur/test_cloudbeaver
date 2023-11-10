@@ -31,16 +31,16 @@ input {
   border-radius: 4px;
 }
 
-button {
+.button {
   margin: 10px 0;
   padding: 15px 30px;
-  background-color: #007bff;
+  background-color: #4598d3;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
+.button:hover {
+  background-color: #2a6590;
 }

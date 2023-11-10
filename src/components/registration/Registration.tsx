@@ -42,7 +42,7 @@ export const Registration = observer(() => {
             onChange={handlePasswordChange}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button className={styles.button} type="submit">Submit</button>
       </form>
     </div>
   );
