@@ -1,10 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Registration.module.css";
 import { observer } from "mobx-react";
 import { authStore } from "../../AuthStore";
-import { db } from "../../Database";
 
 export const Registration = observer(() => {
+  const navigate = useNavigate();
   const handleLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     authStore.setLogin(e.target.value);
   };
@@ -15,37 +16,12 @@ export const Registration = observer(() => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    const login = authStore.login;
-    const password = authStore.password;
-    const createTimestamp = new Date();
-    const updateTimestamp = new Date();
-    alert(login);
-    const insertQuery = `INSERT INTO users (login, password, create_timestamp, update_timestamp) VALUES ('${login}', '${password}', '${createTimestamp.toISOString()}', '${updateTimestamp.toISOString()}')`;
-
-    db.run(
-      insertQuery,
-      [
-        login,
-        password,
-        createTimestamp.toISOString(),
-        updateTimestamp.toISOString(),
-      ],
-      (err) => {
-        if (err) {
-          console.error("Ошибка при вставке данных:", err);
-        } else {
-          console.log("Переводим на User Info");
-        }
-      }
-    );
-
-    db.close();
+    navigate("/userinfo");
   };
 
   return (
     <div className={styles.registrationContainer}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
         <div className={styles.label}>
           <label htmlFor="login">Login:</label>
           <input

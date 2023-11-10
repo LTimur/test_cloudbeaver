@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import { observer } from "mobx-react";
 import { authStore } from "../../AuthStore";
 
 export const Login = observer(() => {
+  const navigate = useNavigate();
   const handleLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     authStore.setLogin(e.target.value);
   };
@@ -11,9 +13,15 @@ export const Login = observer(() => {
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     authStore.setPassword(e.target.value);
   };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate("/userinfo");
+  };
+
   return (
     <div className={styles.loginContainer}>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
         <div className={styles.label}>
           <label htmlFor="login">Login:</label>
           <input
